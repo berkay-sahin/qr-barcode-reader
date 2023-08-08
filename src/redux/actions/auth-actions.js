@@ -2,8 +2,8 @@ import { authConst } from "../constants"
 
 
 
-const decrease = () => ({ type: authConst.decrease })
-const increase = () => ({ type: authConst.increase})
+const decrease = (val) => ({ type: authConst.decrease,payload:val })
+const increase = (val) => ({ type: authConst.increase,payload:val})
 const reqTest = (payload) => ({ type: authConst.reqTest,payload:payload})
 
 

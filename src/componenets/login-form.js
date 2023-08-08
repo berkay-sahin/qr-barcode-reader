@@ -13,7 +13,7 @@ import store from "../redux/store";
 import { authActions } from "../redux/actions";
 export const LoginPage = ({ navigation }) => {
   const [infos, setInfos] = React.useState({ email: "", password: "" });
-  const test = useSelector(state => state.auth.val);
+  const test = useSelector(state => state.auth.value);
  
   const LoginSchema = Yup.object().shape({
     email: Yup.string().required('Zorunlu alan'),
@@ -124,8 +124,8 @@ export const LoginPage = ({ navigation }) => {
 
       <View style={{ marginBottom: -30 }}>
         <TouchableOpacity style={styles.button} onPress={e=>store.dispatch(authActions.reqTest("asdsad"))}><Text style={styles.text}>Login</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={ e=>store.dispatch(authActions.decrease())}><Text style={styles.text}>azalat</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={ e=>store.dispatch(authActions.increase())}><Text style={styles.text}>arttr</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={ e=>store.dispatch(authActions.decrease(1))}><Text style={styles.text}>azalat</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={ e=>store.dispatch(authActions.increase(1))}><Text style={styles.text}>arttr</Text></TouchableOpacity>
 
       </View>
 
@@ -138,20 +138,14 @@ const styles = StyleSheet.create({
   container: {
     display: "flex",
     flex: 1,
-    minHeight: Dimensions.get('screen').height / 1.1,
+    minHeight: Dimensions.get('screen').height ,
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#EAEAEA"
 
   },
-  titleContainer: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: -70
 
-  },
   nameField: {
     width: 300,
     height: 50,
